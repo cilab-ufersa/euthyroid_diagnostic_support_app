@@ -26,9 +26,6 @@ class Main():
 
  
         with col1:
-            #st.text("Realizar a predição\nda possibilidade\nde sindrome na tireoide")
-            #creat a place for the user insert the data to be predicted
-
             st.text("Insira os dados:")
             age = st.number_input("Idade",min_value=1, max_value=100, value=1)
             sex = st.selectbox("Sexo",("F","M"))
