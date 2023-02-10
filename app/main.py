@@ -18,18 +18,35 @@ class Main():
         st.session_state.page=num
         
     def home(self):
-        
-        col1, col3, col5 = st.columns(3)
 
+        # set the page title 
+        st.title("Sistema de apoio ao diagnóstico")
+        st.header("Suporte ao diagnóstico de síndrome do Eutireoideo doente")
+        col1, col2 = st.columns([1,3]) # duas colunas com tamanhos diferentes 1 e 3
+
+ 
         with col1:
-            st.text("Realizar a predição\nda possibilidade\nde sindrome na tireoide")
-            
+            #st.text("Realizar a predição\nda possibilidade\nde sindrome na tireoide")
+            #creat a place for the user insert the data to be predicted
+
+            st.text("Insira os dados:")
+            age = st.number_input("Idade",min_value=1, max_value=100, value=1)
+            sex = st.selectbox("Sexo",("F","M"))
+            tsh = st.number_input("TSH",min_value=0.0, max_value=10.0, value=0.0)
+            t3 = st.number_input("T3",min_value=0.0, max_value=10.0, value=0.0)
+            tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
+            t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
+            ftI = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
+            st.button("Realizar predição",on_click=lambda:self.set_page(1))
+
         
-        with col3:
-            st.header("O que você deseja fazer?")
-        
-        with col5:
-            st.text("Realizar a analise das\nfeatures utilizadas\nno modelo")
+        with col2:
+            st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
+
+            # escrever sobre a sindrome 
+            st.markdown(""" você sabe... """) 
+
+
     
         st.markdown("""
                         <br/>
