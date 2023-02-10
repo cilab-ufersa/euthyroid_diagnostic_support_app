@@ -22,7 +22,7 @@ class Main():
    
         # set the page title 
         st.title("Sistema de apoio ao diagnóstico")
-        st.header("Suporte ao diagnóstico de síndrome do Eutireoideo doente")
+        st.header("Síndrome do Eutireoideo doente")
         col1, col2 = st.columns([1,3]) # duas colunas com tamanhos diferentes 1 e 3
 
  
@@ -42,7 +42,7 @@ class Main():
             st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
 
             # escrever sobre a sindrome 
-            st.markdown(""" você sabe... """) 
+            st.markdown("""<div><p align="justify">A síndrome do doente Eutireoideo é uma condição em que ocorre um distúrbio na regulação hormonal das glândulas tireóideas em pacientes que apresentam alguma outra doença ou infecção (Geomann e Wajner, 2009). Embora a tireoide esteja funcionando normalmente, a sua produção de hormônios tireoidianos é afetada pela inflamação, infecção ou outra condição.</p></div>""", unsafe_allow_html=True) 
 
         # set a icon image in footer in the center
         st.text("Realização")
