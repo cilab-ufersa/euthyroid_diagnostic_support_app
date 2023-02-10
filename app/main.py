@@ -4,9 +4,9 @@ from PIL import Image
 class Main():
     """ Main class of the app """
     def __init__(self):
-        image = Image.open('/home/rosana/Documentos/projects/euthyroid_diagnostic_support_app/app/icon/cilab.png')
+        image = Image.open('./icon/cilab.png')
         st.set_page_config(
-            page_title="Predição",
+            page_title="ESS - Sistema de apoio ao diagnóstico",
             page_icon=image
         )
         
@@ -18,7 +18,8 @@ class Main():
         st.session_state.page=num
         
     def home(self):
-
+        """ Home page """
+   
         # set the page title 
         st.title("Sistema de apoio ao diagnóstico")
         st.header("Suporte ao diagnóstico de síndrome do Eutireoideo doente")
@@ -43,6 +44,10 @@ class Main():
             # escrever sobre a sindrome 
             st.markdown(""" você sabe... """) 
 
+        # set a icon image in footer in the center
+        st.text("Realização")
+        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/icon/cilab.png' width='200'></center>", unsafe_allow_html=True) 
+        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/icon/Ufersa.png' width='200'></center>", unsafe_allow_html=True)
 
     
         st.markdown("""
