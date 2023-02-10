@@ -46,8 +46,8 @@ class Main():
 
         # set a icon image in footer in the center
         st.text("Realização")
-        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/icon/cilab.png' width='200'></center>", unsafe_allow_html=True) 
-        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/icon/Ufersa.png' width='200'></center>", unsafe_allow_html=True)
+        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/app/icon/cilab.png' width='200'></center>", unsafe_allow_html=True) 
+        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/app/icon/Ufersa.png' width='70'></center>", unsafe_allow_html=True)
 
     
         st.markdown("""
@@ -58,7 +58,7 @@ class Main():
                                     <div class="row-widget stButton" style="width: 600px;">
                                         <button kind="secondary" class="css-5uatcg edgvbvh10">
                                             <div data-testid="stMarkdownContainer" class="css-1fv8s86 e16nr0p34">
-                                                <p>Github</p>
+                                                <p>Source</p>
                                             </div>
                                         </button>
                                     </div>
