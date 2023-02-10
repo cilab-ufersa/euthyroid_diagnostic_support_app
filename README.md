@@ -15,6 +15,12 @@ What things you need to have to be able to run:
 $ pip install -r requirements.txt
 ```
 
+## Run 
+
+```bash
+$ streamlit run  main.py
+```
+
 
 ## Scientific Developers
   - [Vinicius Almeida](https://github.com/vinicius-a-almeida): 
