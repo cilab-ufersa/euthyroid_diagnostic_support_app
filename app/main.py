@@ -38,17 +38,12 @@ class Main():
             tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
             t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
             fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
-            st.button("Realizar predição",on_click=lambda:self.set_page(1))
-            sex = sex.astype(str).astype(int)
-            get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-                
-            
+            #st.button("Realizar predição",on_click=lambda:self.set_page(1))
+            #sex = sex.astype(str).astype(int)
+            user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
+            #prediction(user_input_variables)
 
-        user_input_variables = get_user_data()
-        prediction = model.predict(user_input_variables)
-        st.subheader("previsão:")
-        st.write(prediction)
-        
+
         with col2:
             st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
 
