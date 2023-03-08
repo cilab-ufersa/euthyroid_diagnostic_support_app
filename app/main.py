@@ -1,10 +1,8 @@
 import streamlit as st
 from PIL import Image
-import pandas as pd
-import joblib
-from sklearn.ensemble import RandomForestClassifier
+from utils import *
 
-model = joblib.load('/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/models/RandomForestClassifier.sav')
+
 class Main():
     """ Main class of the app """
     def __init__(self):
@@ -31,29 +29,19 @@ class Main():
 
  
         with col1:
-            def get_user_data():
-                st.text("Insira os dados:")
-                age = st.number_input("Idade",min_value=1, max_value=100, value=1)
-                sex = st.selectbox("Sexo",("F","M"))
-                sick = st.number_input("doente? digite 1 para sim e 0 para não", min_value=0, max_value=1, value=0)
-                tsh = st.number_input("TSH",min_value=0.0, max_value=10.0, value=0.0)
-                t3 = st.number_input("T3",min_value=0.0, max_value=10.0, value=0.0)
-                tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
-                t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
-                fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
-                st.button("Realizar predição",on_click=lambda:self.set_page(1))
+            st.text("Insira os dados:")
+            age = st.number_input("Idade",min_value=1, max_value=100, value=1)
+            sex = st.selectbox("Sexo",("F","M"))
+            sick = st.selectbox("Possui a doença?", ("Sim", "Não"))
+            tsh = st.number_input("TSH",min_value=0.0, max_value=10.0, value=0.0)
+            t3 = st.number_input("T3",min_value=0.0, max_value=10.0, value=0.0)
+            tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
+            t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
+            fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
+            st.button("Realizar predição",on_click=lambda:self.set_page(1))
+            sex = sex.astype(str).astype(int)
+            get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
                 
-                user_data = {"age": age,
-                            #"sex": sex,
-                            "sick": sick,
-                            "TSH": tsh,
-                            "T3": t3,
-                            "TT4": tt4,
-                            "T4U": t4u,
-                            "FTI": fti
-                            }
-                features = pd.DataFrame(user_data, index = [0])
-                return features
             
 
         user_input_variables = get_user_data()
