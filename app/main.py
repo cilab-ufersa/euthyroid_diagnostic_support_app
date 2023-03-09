@@ -32,16 +32,28 @@ class Main():
             st.text("Insira os dados:")
             age = st.number_input("Idade",min_value=1, max_value=100, value=1)
             sex = st.selectbox("Sexo",("F","M"))
-            sick = st.selectbox("Possui a doença?", ("Sim", "Não"))
+            sick = st.selectbox("Possui a doença?", ("Não", "Sim"))
             tsh = st.number_input("TSH",min_value=0.0, max_value=10.0, value=0.0)
             t3 = st.number_input("T3",min_value=0.0, max_value=10.0, value=0.0)
             tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
             t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
             fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
             #st.button("Realizar predição",on_click=lambda:self.set_page(1))
-            #sex = sex.astype(str).astype(int)
-            user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
-            #prediction(user_input_variables)
+
+            #converting sex from object to int
+            if sex == 'F':
+                sex = int(0)
+            else:
+                sex = int(1)
+            #converting sick to object to int
+            if sick == 'Não':
+                sick = int(0)
+            else:
+                sick = int(1)
+                
+            #user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
+            user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
+            prediction(user_input_variables)
 
 
         with col2:
