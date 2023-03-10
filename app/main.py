@@ -7,14 +7,23 @@ from prediction import *
 class Main():
     """ Main class of the app """
     def __init__(self):
-        image = Image.open('app/icon/cilab.png')
+        image = Image.open('icon/cilab.png')
         st.set_page_config(
             page_title="ESS - Sistema de apoio ao diagnóstico",
             page_icon=image
         )
         
         self.placeholder = st.empty()
-        self.home()
+
+        if "page" not in st.session_state:
+            st.session_state.page = 0
+            
+        if st.session_state.page == 0:
+            self.home()
+            
+        if st.session_state.page == 1:
+            self.home()
+            st.button("Voltar",on_click=lambda:self.set_page(0))
             
        
     def set_page(self,num):
@@ -23,7 +32,6 @@ class Main():
     def home(self):
         """ Home page """
    
-        # set the page title 
         st.title("Sistema de apoio ao diagnóstico")
         st.header("Síndrome do Eutireoideo doente")
         col1, col2 = st.columns([1,3]) # duas colunas com tamanhos diferentes 1 e 3
@@ -39,14 +47,12 @@ class Main():
             tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
             t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
             fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
-            #st.button("Realizar predição",on_click=lambda:self.set_page(1))
             sex = sex_string2int(sex)
             sick = sick_string2int(sick)
-                
-            #user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
-            user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-            Prediction(path="models/RandomForestClassifier.sav", user_input_variables = user_input_variables)
 
+            user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
+            st.button("Realizar predição",on_click=lambda:Prediction(path="../models/RandomForestClassifier.sav", user_input_variables = user_input_variables))
+            st.button("Limpar",on_click=lambda:self.set_page(1))
 
 
         with col2:
