@@ -11,8 +11,8 @@ class Prediction:
 
     def predict_result(self, user_input_variables):
         
-        model = joblib.load("./models/RandomForestClassifier.sav")
-        response = model.predict(user_input_variables)
+        model = joblib.load(self.path)
+        response = model.predict(user_input_variables.values)
 
 
         if response == 0:

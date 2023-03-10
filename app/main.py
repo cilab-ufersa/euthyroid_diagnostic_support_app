@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 from utils import *
+from prediction import *
 
 
 class Main():
@@ -44,7 +45,8 @@ class Main():
                 
             #user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
             user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-            prediction(user_input_variables)
+            Prediction(path="models/RandomForestClassifier.sav", user_input_variables = user_input_variables)
+
 
 
         with col2:
