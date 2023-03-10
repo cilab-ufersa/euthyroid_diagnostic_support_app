@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 
-model = joblib.load('/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/models/RandomForestClassifier.sav')
+#model = joblib.load("/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/models/RandomForestClassifier.sav")
 
 def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
     """
@@ -36,6 +36,21 @@ def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
     return features
 
 def prediction(user_input_variables):
+    model = joblib.load("/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/models/RandomForestClassifier.sav")
     prediction = model.predict(user_input_variables)
     st.write("predição: ")
     st.write(prediction)
+
+#converting sex from object to int
+def sex_string2int(sex):       
+    if sex == 'F':
+        return int(0)
+    else:
+        return int(1)
+
+#converting sick from object to int
+def sick_string2int(sick):
+    if sick == 'Não':
+        return int(0)
+    else:
+        return int(1)

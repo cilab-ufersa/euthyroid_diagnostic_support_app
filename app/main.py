@@ -39,17 +39,8 @@ class Main():
             t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
             fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
             #st.button("Realizar predição",on_click=lambda:self.set_page(1))
-
-            #converting sex from object to int
-            if sex == 'F':
-                sex = int(0)
-            else:
-                sex = int(1)
-            #converting sick to object to int
-            if sick == 'Não':
-                sick = int(0)
-            else:
-                sick = int(1)
+            sex = sex_string2int(sex)
+            sick = sick_string2int(sick)
                 
             #user_input_variables = st.button("Realizar predição",on_click = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
             user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
