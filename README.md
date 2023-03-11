@@ -21,6 +21,11 @@ $ pip install -r requirements.txt
 $ streamlit run  main.py
 ```
 
+In virtual codespace 
+```bash
+$ streamlit run main.py --server.enableCORS false --server.enableXsrfProtection false
+```
+
 
 ## Scientific Developers
 👤 [Vinicius Almeida](https://github.com/vinicius-a-almeida): 
