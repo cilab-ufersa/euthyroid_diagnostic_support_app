@@ -52,18 +52,18 @@ class Main():
         # TODO(Vinicius) escrever sobre a sindrome 
         #st.markdown("""<div><p align="justify">A síndrome do doente Eutireoideo é uma condição em que ocorre um distúrbio na regulação hormonal das glândulas tireóideas em pacientes que apresentam alguma outra doença ou infecção (Geomann e Wajner, 2009). Embora a tireoide esteja funcionando normalmente, a sua produção de hormônios tireoidianos é afetada pela inflamação, infecção ou outra condição.</p></div>""", unsafe_allow_html=True)
         st.markdown("""
-            A síndrome do doente eutireoideo é uma condição médica que afeta
-            a glândula tireoide. O diagnóstico precoce e preciso é crucial
-            para o tratamento. No entanto, a interpretação dos resultados
-            dos exames pode ser subjetiva. E com isso tornando seu diagnóstico cada vez
-            mais dificil para o profissional da saúde. Tendo em vista que ele terá
-            que levar em consideração varias métricas tais como o T4, TSH, e T3, 
-            para que ele possa
-            dar o diagnóstico. E pensando nisso criamos uma inteligencia artificial que pode
-            predizer se o paciente tem ou não a doença com base em seus dados de exame de sangue
-            . Lembrando que é uma inteligencia artificial e 
-            tolerante a falhas, não leve em consideração apenas o resultado apresentado por ela,
-            pois ela não substitui um profissional da saúde.
+            A síndrome do doente eutireoideo é uma condição médica que
+            afeta a glândula tireoide e pode ser detectada por meio da
+            interpretação de resultados de exames, como T4, TSH e T3. No entanto, a
+            interpretação subjetiva desses resultados pode tornar o diagnóstico difícil
+            para o profissional de saúde. Para ajudar nessa tarefa, um modelo de
+            inteligência artificial foi desenvolvido para prever se o paciente tem
+            ou não a síndrome com base em seus dados de exame. No entanto, é importante
+            lembrar que a inteligência artificial pode apresentar falsos positivos e
+            falsos negativos, portanto, seu resultado não deve ser considerado como
+            absoluto e não deve substituir o julgamento clínico do profissional de saúde.
+            É recomendado que o resultado da inteligência artificial seja interpretado
+            com cautela e que o diagnóstico seja confirmado pelo profissional de saúde.
         """) 
         # change button color 
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
