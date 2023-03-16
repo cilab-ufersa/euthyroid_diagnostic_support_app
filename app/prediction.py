@@ -29,6 +29,11 @@ class Prediction:
         # TODO(Vinicius) adicionar as métricas do modelo
         #with col2:
             # adicionar as métricas do modelo (acuracy, precision, recall)
+            col1, col2, col3, col4 = st.columns(4)
+            col1.metric("Acuracia", "0.9834")
+            col2.metric("Precisão", "0.9838")
+            col3.metric("Recall", "0.9821")
+            col4.metric("F1 score", "0.9830")
 
 
         
