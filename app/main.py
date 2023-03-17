@@ -7,11 +7,13 @@ from prediction import *
 class Main():
     """ Main class of the app """
     def __init__(self):
-        image = Image.open('icon/cilab.png')
+        image = Image.open('app/icon/cilab.png')
         st.set_page_config(
             page_title="ESS - Sistema de apoio ao diagnóstico",
-            page_icon=image
-        )
+            page_icon=image,
+            layout="wide",
+            initial_sidebar_state="expanded"
+            )
         
         self.placeholder = st.empty()
 
@@ -22,67 +24,50 @@ class Main():
             self.home()
             
         if st.session_state.page == 1:
-            self.home()
+            Prediction(path="models/RandomForestClassifier.sav")
             st.button("Voltar",on_click=lambda:self.set_page(0))
             
-       
+ 
     def set_page(self,num):
         st.session_state.page=num
         
     def home(self):
         """ Home page """
-   
-        st.title("Sistema de apoio ao diagnóstico")
-        st.header("Síndrome do Eutireoideo doente")
-        col1, col2 = st.columns([1,3]) # duas colunas com tamanhos diferentes 1 e 3
 
- 
-        with col1:
-            st.text("Insira os dados:")
-            age = st.number_input("Idade",min_value=1, max_value=100, value=1)
-            sex = st.selectbox("Sexo",("F","M"))
-            sick = st.selectbox("Possui a doença?", ("Não", "Sim"))
-            tsh = st.number_input("TSH",min_value=0.0, max_value=10.0, value=0.0)
-            t3 = st.number_input("T3",min_value=0.0, max_value=10.0, value=0.0)
-            tt4 = st.number_input("TT4",min_value=0.0, max_value=10.0, value=0.0)
-            t4u = st.number_input("T4U",min_value=0.0, max_value=10.0, value=0.0)
-            fti = st.number_input("FTI",min_value=0.0, max_value=10.0, value=0.0)
-            sex = sex_string2int(sex)
-            sick = sick_string2int(sick)
+        # set the title 
+        st.markdown('<style>h1{font-size: 30px;}</style>', unsafe_allow_html=True)
+        # set title color 
+        st.markdown('<style>h1{color: #1E90FF;}</style>', unsafe_allow_html=True)
+        st.title("Sistema de apoio ao diagnóstico: Síndrome do Eutireoideo doente")
+       
 
-            user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-            st.button("Realizar predição",on_click=lambda:Prediction(path="../models/RandomForestClassifier.sav", user_input_variables = user_input_variables))
-            st.button("Limpar",on_click=lambda:self.set_page(1))
+        # set the subtitle 
+        st.markdown('<style>h2{font-size: 20px;}</style>', unsafe_allow_html=True)
+        st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
 
+        # add a image
+        image = Image.open('app/icon/icon.png')
+        st.image(image, caption='Síndrome do Eutireoideo doente', use_column_width=True)
 
-        with col2:
-            st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
-
-            # escrever sobre a sindrome 
-            st.markdown("""<div><p align="justify">A síndrome do doente Eutireoideo é uma condição em que ocorre um distúrbio na regulação hormonal das glândulas tireóideas em pacientes que apresentam alguma outra doença ou infecção (Geomann e Wajner, 2009). Embora a tireoide esteja funcionando normalmente, a sua produção de hormônios tireoidianos é afetada pela inflamação, infecção ou outra condição.</p></div>""", unsafe_allow_html=True) 
-
-        # set a icon image in footer in the center
-        st.text("Realização")
-        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/app/icon/cilab.png' width='200'></center>", unsafe_allow_html=True) 
-        st.markdown("<center><img src='https://raw.githubusercontent.com/cilab-ufersa/euthyroid_diagnostic_support_app/main/app/icon/Ufersa.png' width='70'></center>", unsafe_allow_html=True)
-
-    
+        # TODO(Vinicius) escrever sobre a sindrome 
+        #st.markdown("""<div><p align="justify">A síndrome do doente Eutireoideo é uma condição em que ocorre um distúrbio na regulação hormonal das glândulas tireóideas em pacientes que apresentam alguma outra doença ou infecção (Geomann e Wajner, 2009). Embora a tireoide esteja funcionando normalmente, a sua produção de hormônios tireoidianos é afetada pela inflamação, infecção ou outra condição.</p></div>""", unsafe_allow_html=True)
         st.markdown("""
-                        <br/>
-                        <br/>
-                        <center>
-                                <a href="https://github.com/cilab-ufersa/euthyroid_diagnostic_support_app">
-                                    <div class="row-widget stButton" style="width: 600px;">
-                                        <button kind="secondary" class="css-5uatcg edgvbvh10">
-                                            <div data-testid="stMarkdownContainer" class="css-1fv8s86 e16nr0p34">
-                                                <p>Source</p>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </a>
-                        </center>
-                        """,unsafe_allow_html=True)
-     
+            A síndrome do doente eutireoideo é uma condição médica que
+            afeta a glândula tireoide e pode ser detectada por meio da
+            interpretação de resultados de exames, como T4, TSH e T3. No entanto, a
+            interpretação subjetiva desses resultados pode tornar o diagnóstico difícil
+            para o profissional de saúde. Para ajudar nessa tarefa, um modelo de
+            inteligência artificial foi desenvolvido para prever se o paciente tem
+            ou não a síndrome com base em seus dados de exame. No entanto, é importante
+            lembrar que a inteligência artificial pode apresentar falsos positivos e
+            falsos negativos, portanto, seu resultado não deve ser considerado como
+            absoluto e não deve substituir o julgamento clínico do profissional de saúde.
+            É recomendado que o resultado da inteligência artificial seja interpretado
+            com cautela e que o diagnóstico seja confirmado pelo profissional de saúde.
+        """) 
+        # change button color 
+        st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
+        st.button("Realizar Diagnóstico",on_click=lambda:self.set_page(1))  
         
 
             

@@ -1,6 +1,7 @@
 import pandas as pd
+import streamlit as st
 
-
+@st.cache_data
 def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
     """
     Get user data from the form
@@ -34,16 +35,33 @@ def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
 
 
 
-#TODO (Vinicius): added docstring
-def sex_string2int(sex):       
+def sex_string2int(sex):
+    """
+        converting sex to int
+
+        Args:
+            sex (str): sex of the patient F and M
+
+        returns 0 if patient is F or 1 if patient is M
+    """     
     if sex == 'F':
         return int(0)
     else:
         return int(1)
 
-#TODO (Vinicius): added docstring
 def sick_string2int(sick):
+    """
+        converting sick to int
+
+        Args:
+            sick (str): if patiente have disorder
+
+        returns 0 if patient have some disorder or 1 if patient dont have
+    """
     if sick == 'Não':
         return int(0)
     else:
         return int(1)
+    
+def clear():
+    st.cache_data.clear()
