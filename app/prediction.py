@@ -31,10 +31,10 @@ class Prediction:
             # adicionar as métricas do modelo (acuracy, precision, recall)
             df = pd.read_csv("models/models.csv")
             col1, col2, col3, col4 = st.columns(4)
-            col1.metric(df.loc[1, 0], df.loc[1, 1])
-            col2.metric("Precisão", "0.9838")
-            col3.metric("Recall", "0.9821")
-            col4.metric("F1 score", "0.9830")
+            col1.metric("Acuracia", df['acuracia'])
+            col2.metric("Precisão", df['precisao'])
+            col3.metric("Recall", df['recall'])
+            col4.metric("F1 score", df['f1_score'])
 
 
         
