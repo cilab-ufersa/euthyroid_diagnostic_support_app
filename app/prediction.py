@@ -27,14 +27,28 @@ class Prediction:
             self.data_values()
 
         # TODO(Vinicius) adicionar as métricas do modelo
-        #with col2:
+        with col2:
             # adicionar as métricas do modelo (acuracy, precision, recall)
             df = pd.read_csv("models/models.csv")
             col1, col2, col3, col4 = st.columns(4)
-            col1.metric("Acuracia", df['acuracia'])
+            col1.metric("Acurácia", df['acuracia'])
             col2.metric("Precisão", df['precisao'])
             col3.metric("Recall", df['recall'])
             col4.metric("F1 score", df['f1_score'])
+            st.markdown(""" ## O que significa cada métrica?
+            A acurácia calcula a precisão do subconjunto, o conjunto de rótulos
+            previstos para uma amostra deve corresponder exatamente ao conjunto de rótulos correspondente
+            na saída do modelo de teste.\n
+            A precisão é uma métrica que analisa os acertos por categoria de dados, há
+            o cálculo que avalia os acertos na categoria positiva e o cálculo que faz a avaliação
+            na categoria negativa, resultando assim, em dois resultados diferentes. O cálculo da
+            precisão para positivos é a quantidade de resultados positivos que foram
+            corretamente calculados sobre a quantidade de resultados positivos totais, funciona
+            da mesma forma para negativos.\n
+            O recall é a capacidade do classificador de encontrar todas as amostras
+            positivas.\n
+            O F1-score basicamente é uma média harmônica entre a precisão e o recall.
+            """)
 
 
         

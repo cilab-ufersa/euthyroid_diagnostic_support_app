@@ -6,3 +6,4 @@ imblearn
 mlxtend
 streamlit
 pytest~=7.2.2
+joblib
