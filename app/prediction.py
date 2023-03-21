@@ -21,20 +21,27 @@ class Prediction:
         """
         Prediction page
         """
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns([2, 0.5, 2])
 
         with col1:
             self.data_values()
 
-        # TODO(Vinicius) adicionar as métricas do modelo
-        #with col2:
-            # adicionar as métricas do modelo (acuracy, precision, recall)
-            df = pd.read_csv("models/models.csv")
-            col1, col2, col3, col4 = st.columns(4)
-            col1.metric("Acuracia", df['acuracia'])
-            col2.metric("Precisão", df['precisao'])
-            col3.metric("Recall", df['recall'])
-            col4.metric("F1 score", df['f1_score'])
+        with col2: 
+            pass 
+
+        with col3:
+       
+            st.header("Métricas do modelo")
+            df = pd.read_csv("../models/models.csv")
+            col_1, col_2, col_3 = st.columns(3)
+            col_1.metric("Acurácia", value=str(int(100*df['acuracia']))+"%", help="Acurácia do modelo: indica o quão precisa é a previsão de um modelo")
+            col_2.metric("Precisão", value=str(int(100*df['precisao']))+"%", help="Precisão do modelo: indica a capacidade do modelo de prever corretamente os casos em que o paciente tem a doença")
+            col_3.metric("Recall", value=str(int(100*df['recall']))+"%", help="Recall do modelo: indica quantos casos em que o paciente tem a doença o modelo conseguiu identificar no conjunto de dados")
+
+            st.markdown('---')
+            st.markdown('<style>p{ text-align: justify;}</style>', unsafe_allow_html=True)
+            st.warning("Embora os resultados de testes e modelos sejam importantes, é fundamental lembrar que eles não devem ser usados como uma única fonte de informação ou como uma decisão definitiva. É essencial que um profissional de saúde utilize seu conhecimento clínico e julgamento para interpretar e avaliar adequadamente esses resultados, garantindo que os pacientes recebam o tratamento mais adequado e seguro.")
+
 
 
         
@@ -55,6 +62,7 @@ class Prediction:
                 st.success(f"Chances de ter euthyroid: BAIXA", icon="✅")
             if response == 1:
                 st.warning(f"Chances de ter euthyroid: ALTA")
+
         except:
             st.error("Erro ao carregar o modelo")            
         st.markdown('---')
@@ -72,14 +80,14 @@ class Prediction:
         # change color of the number input when the user click on it
         st.markdown('<style>input[type=number] {color: #1E90FF;}</style>', unsafe_allow_html=True)
         
-        age = st.number_input("Idade",min_value=0, max_value=100, value=0, key="age")
+        age = st.number_input("Idade",min_value=0, max_value=100, value=0, key="age", help="Idade do paciente")
         sex = st.selectbox("Sexo",("F","M"), key="sex")
-        sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick")
-        tsh = st.number_input("TSH",min_value=0.0, max_value=100.0, value=0.0, key="tsh")
-        t3 = st.number_input("T3",min_value=0.0, max_value=100.0, value=0.0, key="t3")
-        tt4 = st.number_input("TT4",min_value=0.0, max_value=100.0, value=0.0, key="tt4")
-        t4u = st.number_input("T4U",min_value=0.0, max_value=100.0, value=0.0, key="t4u")
-        fti = st.number_input("FTI",min_value=0.0, max_value=100.0, value=0.0, key="fti")
+        sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick", help="Se o paciente possui algum distúrbio da tireoide já conhecido")
+        tsh = st.number_input("TSH",min_value=0.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
+        t3 = st.number_input("T3",min_value=0.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
+        tt4 = st.number_input("TT4",min_value=0.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
+        t4u = st.number_input("T4 Livre",min_value=0.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        fti = st.number_input("FTI",min_value=0.0, max_value=100.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
 
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
