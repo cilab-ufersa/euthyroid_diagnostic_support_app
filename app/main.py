@@ -40,7 +40,7 @@ class Main():
         st.markdown('<style>h1{color: #1E90FF;}</style>', unsafe_allow_html=True)
         st.title("Sistema de apoio ao diagnóstico: Síndrome do Eutireoideo doente")
        
-
+        st.markdown('---')
         # set the subtitle 
         st.markdown('<style>h2{font-size: 20px;}</style>', unsafe_allow_html=True)
         st.header("Você sabe o que é a sindrome do Eutireoideo doente?")
@@ -65,11 +65,36 @@ class Main():
         with col1:
             image = Image.open('icon/icon.png')
             st.image(image, caption='Síndrome do Eutireoideo doente', width=450)
-         
-        # change button color 
+        st.markdown('---')
+
+
+        st.header("Realize o diagnóstico utilizando o modelo de inteligência artificial") 
+        st.markdown('<style>div.row-widget.stButton > button {margin-left: 45%;}</style>', unsafe_allow_html=True)
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
         st.button("Realizar Diagnóstico",on_click=lambda:self.set_page(1))  
-        
+
+        st.markdown('---')
+        st.markdown('<style>h2{color: #1E90FF;}</style>', unsafe_allow_html=True)
+        st.header("Sobre o projeto")
+        st.markdown('<style>p{text-align: justify;}</style>', unsafe_allow_html=True)
+        st.markdown("""
+        Este é um projeto da Universidade Federal Rural do Semi-Árido (UFERSA) que tem como objetivo
+        desenvolver um sistema de apoio ao diagnóstico para a síndrome do doente eutireoideo. O projeto 
+        é coordenado pela professora Dra. Rosana Rego e conta com a participação dos 
+        desenvolvedores científicos: Vinicius Anacleto, Caio Moisés, Macors.""")
+
+        st.markdown('---')
+        st.markdown('<style>h3{color: #1E90FF;}</style>', unsafe_allow_html=True)
+        # centralize the subheader
+        #st.markdown('<style>h3{text-align: center;}</style>', unsafe_allow_html=True)
+        # set the subheader size
+        st.markdown('<style>h3{font-size: 15px;}</style>', unsafe_allow_html=True)
+        st.subheader("Apoio")
+        image = Image.open('icon/Ufersa.png')
+        st.image(image, caption='UFERSA', width=70)
+
+
+    
 
             
 if __name__ == '__main__':
