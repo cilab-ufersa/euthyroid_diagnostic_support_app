@@ -93,11 +93,19 @@ class Prediction:
         sick = sick_string2int(sick)
 
         self.user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-        st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction")
-        
-        # change the button color
+        st.markdown('---')
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
-        st.button("Limpar", on_click=lambda: self.clear_values(), key="clear")
+ 
+        but1, but2, but3 = st.columns(3)
+        with but1:
+            st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction")
+        with but2:
+            st.button("Limpar", on_click=lambda: self.clear_values(), key="clear")
+        with but3:
+            pass
+
+        
+
 
     def clear_values(self):
         """ Clear all values """
