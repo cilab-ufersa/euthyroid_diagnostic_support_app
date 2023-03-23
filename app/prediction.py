@@ -39,10 +39,10 @@ class Prediction:
             col_3.metric("Recall", value=str(int(100*df['recall']))+"%", help="Recall do modelo: indica quantos casos em que o paciente tem a doença o modelo conseguiu identificar no conjunto de dados")
 
             st.markdown('---')
-            st.markdown('<style>p{ text-align: justify;}</style>', unsafe_allow_html=True)
-            st.warning("Embora os resultados de testes e modelos sejam importantes, é fundamental lembrar que eles não devem ser usados como uma única fonte de informação ou como uma decisão definitiva. É essencial que um profissional de saúde utilize seu conhecimento clínico e julgamento para interpretar e avaliar adequadamente esses resultados, garantindo que os pacientes recebam o tratamento mais adequado e seguro.")
-
-
+            st.markdown('<style>p{ text-align: justify;, font-weight: bold;}</style>', unsafe_allow_html=True)
+            st.warning("**ATENÇÃO**: Embora os resultados de testes e modelos sejam importantes, é fundamental lembrar que eles não devem ser usados como uma única fonte de informação ou como uma decisão definitiva. É essencial que um profissional de saúde utilize seu conhecimento clínico e julgamento para interpretar e avaliar adequadamente esses resultados, garantindo que os pacientes recebam o tratamento mais adequado e seguro.")
+            
+        
 
         
         
@@ -93,11 +93,19 @@ class Prediction:
         sick = sick_string2int(sick)
 
         self.user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-        st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction")
-        
-        # change the button color
+        st.markdown('---')
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
-        st.button("Limpar", on_click=lambda: self.clear_values(), key="clear")
+ 
+        but1, but2, but3 = st.columns(3)
+        with but1:
+            st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction")
+        with but2:
+            st.button("Limpar", on_click=lambda: self.clear_values(), key="clear")
+        with but3:
+            pass
+
+        
+
 
     def clear_values(self):
         """ Clear all values """
