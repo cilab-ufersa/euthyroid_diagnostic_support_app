@@ -43,7 +43,7 @@ class Main():
         st.markdown('---')
         # set the subtitle 
         st.markdown('<style>h2{font-size: 20px;}</style>', unsafe_allow_html=True)
-        st.header("Do you know what the sick euthyroid syndrome is?")
+        st.header("Do you know what is the sick euthyroid syndrome?")
 
         col1, col2 = st.columns(2)
         with col2:
@@ -78,10 +78,10 @@ class Main():
         st.header("About the project")
         st.markdown('<style>p{text-align: justify;}</style>', unsafe_allow_html=True)
         st.markdown("""
-        This is a project of the Federal Rural University of the Semi-Arid (UFERSA) that aims to
+        This is a project of the Federal Rural University of the Semi-Arid (UFERSA) at Brazil, that aims to
          to develop a diagnostic support system for the euthyroid sick syndrome. The project
          It is coordinated by Professor Dr. Rosana Rego and has the participation of
-         scientific developers: Vinicius Anacleto, Caio Moisés, Macors.""")
+         scientific developers: Vinicius Anacleto, Caio Moisés, Marcos Vieira Barros.""")
 
         st.markdown('---')
         st.markdown('<style>h3{color: #1E90FF;}</style>', unsafe_allow_html=True)
