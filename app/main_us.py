@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 from utils import *
-from prediction import *
+from prediction_us import *
 
 
 class Main():
