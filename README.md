@@ -31,7 +31,7 @@ $ streamlit run main.py --server.enableCORS false --server.enableXsrfProtection 
 👤 [Vinicius Almeida](https://github.com/vinicius-a-almeida): 
   _vinicius45anacleto@gmail.com_
   
-👤 [Caio Moisés](https://github.com/caiomoises):  _caio.cavalcante@alunos.ufersa.edu.br_
+
 
 ### Technical and scientific support 
 
