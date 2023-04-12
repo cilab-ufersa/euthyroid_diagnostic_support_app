@@ -80,7 +80,7 @@ class Prediction:
         # change color of the number input when the user click on it
         st.markdown('<style>input[type=number] {color: #1E90FF;}</style>', unsafe_allow_html=True)
         
-        age = st.number_input("Idade",min_value=0, max_value=100, value=0, key="age", help="Idade do paciente")
+        age = st.number_input("Idade",min_value=1, max_value=100, value=1, key="age", help="Idade do paciente")
         sex = st.selectbox("Sexo",("F","M"), key="sex")
         sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick", help="Se o paciente possui algum distúrbio da tireoide já conhecido")
         tsh = st.number_input("TSH",min_value=0.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
