@@ -58,6 +58,7 @@ class Prediction:
         #try:
         model = joblib.load(self.path)
         response = model.predict(user_input_variables)
+        print(response)
         if response == 0:
             st.success(f"Chances de ter euthyroid: BAIXA", icon="✅")
         if response == 1:

@@ -81,7 +81,7 @@ class Main():
         Este é um projeto da Universidade Federal Rural do Semi-Árido (UFERSA) que tem como objetivo
         desenvolver um sistema de apoio ao diagnóstico para a síndrome do doente eutireoideo. O projeto 
         é coordenado pela professora Dra. Rosana Rego e conta com a participação dos 
-        desenvolvedores científicos: Vinicius Anacleto, Caio Moisés, Macors.""")
+        desenvolvedores científicos: Vinicius Almeida, Caio Moisés, Macors.""")
 
         st.markdown('---')
         st.markdown('<style>h3{color: #1E90FF;}</style>', unsafe_allow_html=True)
