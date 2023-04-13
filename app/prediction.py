@@ -55,18 +55,18 @@ class Prediction:
             user_input_variables (pd.DataFrame): user data
         
         """
-        try:
-            model = joblib.load(self.path)
-            response = model.predict(user_input_variables)
-            if response == 0:
-                st.success(f"Chances de ter euthyroid: BAIXA", icon="✅")
-            if response == 1:
-                st.warning(f"Chances de ter euthyroid: ALTA")
+        #try:
+        model = joblib.load(self.path)
+        response = model.predict(user_input_variables)
+        if response == 0:
+            st.success(f"Chances de ter euthyroid: BAIXA", icon="✅")
+        if response == 1:
+            st.warning(f"Chances de ter euthyroid: ALTA")
 
-        except:
+        '''except:
             st.error("Erro ao carregar o modelo")            
         st.markdown('---')
-
+        '''
     def data_values(self):
         """
         Get the data values from the user input variables
@@ -87,7 +87,7 @@ class Prediction:
         t3 = st.number_input("T3",min_value=0.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
         tt4 = st.number_input("TT4",min_value=0.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
         t4u = st.number_input("T4 Livre",min_value=0.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
-        fti = st.number_input("FTI",min_value=0.0, max_value=100.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        fti = st.number_input("FTI",min_value=0.0, max_value=200.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
 
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
