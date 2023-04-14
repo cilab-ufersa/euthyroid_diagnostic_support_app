@@ -94,16 +94,11 @@ class Prediction:
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
         scaler = StandardScaler()
-        #array = np.array(age, sex, sick, tsh, t3, tt4, t4u, fti)
-        #[age], [sex], [sick], [tsh], [t3], [tt4], [t4u], [fti]
-        #0.7421023   1.84349327 -0.15519548 -0.18635398 -1.37973608 -0.26908902 -0.05786864 -0.27157357
-        x = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
-        data_scaled = scaler.fit_transform(x.reshape(8, -1))
+        
+        user_data = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
+        data_scaled = scaler.fit_transform(user_data.reshape(8, -1))
         self.user_input_variables = data_scaled.reshape(-1, 8)
-        #df = pd.read_csv('/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/tests/features/euthyroid_final_features.csv')
-        #self.user_input_variables = scaler.fit_transform(get_user_data(age[0], sex[0], sick[0], tsh[0], [t3][0], [tt4][0], [t4u][0], [fti][0]))
-        print(get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
-        print(self.user_input_variables)
+        #print(self.user_input_variables)
 
         st.markdown('---')
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
