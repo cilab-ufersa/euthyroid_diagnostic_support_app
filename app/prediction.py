@@ -2,6 +2,7 @@ import joblib
 import streamlit as st
 from utils import *
 import pandas as pd
+import numpy as np
 
 class Prediction:
     def __init__(self, path):
@@ -81,19 +82,29 @@ class Prediction:
         # change color of the number input when the user click on it
         st.markdown('<style>input[type=number] {color: #1E90FF;}</style>', unsafe_allow_html=True)
         
-        age = st.number_input("Idade",min_value=1, max_value=100, value=1, key="age", help="Idade do paciente")
+        age = st.number_input("Idade",min_value=-10, max_value=100, value=1, key="age", help="Idade do paciente")
         sex = st.selectbox("Sexo",("F","M"), key="sex")
         sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick", help="Se o paciente possui algum distúrbio da tireoide já conhecido")
-        tsh = st.number_input("TSH",min_value=0.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
-        t3 = st.number_input("T3",min_value=0.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
-        tt4 = st.number_input("TT4",min_value=0.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
-        t4u = st.number_input("T4 Livre",min_value=0.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
-        fti = st.number_input("FTI",min_value=0.0, max_value=200.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        tsh = st.number_input("TSH",min_value=-10.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
+        t3 = st.number_input("T3",min_value=-10.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
+        tt4 = st.number_input("TT4",min_value=-10.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
+        t4u = st.number_input("T4 Livre",min_value=-10.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        fti = st.number_input("FTI",min_value=-10.0, max_value=200.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
 
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
+        scaler = StandardScaler()
+        #array = np.array(age, sex, sick, tsh, t3, tt4, t4u, fti)
+        #[age], [sex], [sick], [tsh], [t3], [tt4], [t4u], [fti]
+        #0.7421023   1.84349327 -0.15519548 -0.18635398 -1.37973608 -0.26908902 -0.05786864 -0.27157357
+        x = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
+        data_scaled = scaler.fit_transform(x.reshape(8, -1))
+        self.user_input_variables = data_scaled.reshape(-1, 8)
+        #df = pd.read_csv('/home/vinicius/UFERSA/cilab/euthyroid_diagnostic_support_app/tests/features/euthyroid_final_features.csv')
+        #self.user_input_variables = scaler.fit_transform(get_user_data(age[0], sex[0], sick[0], tsh[0], [t3][0], [tt4][0], [t4u][0], [fti][0]))
+        print(get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti))
+        print(self.user_input_variables)
 
-        self.user_input_variables = get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti)
         st.markdown('---')
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
  

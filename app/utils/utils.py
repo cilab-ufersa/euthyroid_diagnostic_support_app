@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from sklearn.preprocessing import StandardScaler
 
 @st.cache_data
 def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
@@ -31,6 +32,7 @@ def get_user_data(age, sex, sick, tsh, t3, tt4, t4u, fti):
                 "FTI": fti
                 }
     features = pd.DataFrame(user_data, index = [0])
+    #print(features.values)
     return features.values
 
 
