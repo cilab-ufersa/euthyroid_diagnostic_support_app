@@ -82,14 +82,14 @@ class Prediction:
         # change color of the number input when the user click on it
         st.markdown('<style>input[type=number] {color: #1E90FF;}</style>', unsafe_allow_html=True)
         
-        age = st.number_input("Idade",min_value=-10, max_value=100, value=1, key="age", help="Idade do paciente")
+        age = st.number_input("Idade",min_value=1, max_value=100, value=1, key="age", help="Idade do paciente")
         sex = st.selectbox("Sexo",("F","M"), key="sex")
         sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick", help="Se o paciente possui algum distúrbio da tireoide já conhecido")
-        tsh = st.number_input("TSH",min_value=-10.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
-        t3 = st.number_input("T3",min_value=-10.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
-        tt4 = st.number_input("TT4",min_value=-10.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
-        t4u = st.number_input("T4 Livre",min_value=-10.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
-        fti = st.number_input("FTI",min_value=-10.0, max_value=200.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        tsh = st.number_input("TSH",min_value=0.0, max_value=100.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
+        t3 = st.number_input("T3",min_value=0.0, max_value=100.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
+        tt4 = st.number_input("TT4",min_value=0.0, max_value=100.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
+        t4u = st.number_input("T4 Livre",min_value=0.0, max_value=100.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        fti = st.number_input("FTI",min_value=0.0, max_value=200.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
 
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
