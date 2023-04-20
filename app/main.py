@@ -7,7 +7,7 @@ from prediction import *
 class Main():
     """ Main class of the app """
     def __init__(self):
-        image = Image.open('icon/cilab.png')
+        image = Image.open('app\icon\cilab.png')
         st.set_page_config(
             page_title="ESS - Sistema de apoio ao diagnóstico",
             page_icon=image,
@@ -24,7 +24,7 @@ class Main():
             self.home()
             
         if st.session_state.page == 1:
-            Prediction(path="../models/RandomForestClassifier.sav")
+            Prediction(path="models\StackingClassifier.sav")
             st.button("Voltar",on_click=lambda:self.set_page(0))
             
  
@@ -63,7 +63,7 @@ class Main():
             com cautela e que o diagnóstico seja confirmado pelo profissional de saúde.
             """)
         with col1:
-            image = Image.open('icon/icon.png')
+            image = Image.open('app\icon\icon.png')
             st.image(image, caption='Síndrome do Eutireoideo doente', width=450)
         st.markdown('---')
 
@@ -81,7 +81,7 @@ class Main():
         Este é um projeto da Universidade Federal Rural do Semi-Árido (UFERSA) que tem como objetivo
         desenvolver um sistema de apoio ao diagnóstico para a síndrome do doente eutireoideo. O projeto 
         é coordenado pela professora Dra. Rosana Rego e conta com a participação dos 
-        desenvolvedores científicos: Vinicius Anacleto, Caio Moisés, Macors.""")
+        desenvolvedores científicos: Vinicius Almeida, Caio Moisés, Macors.""")
 
         st.markdown('---')
         st.markdown('<style>h3{color: #1E90FF;}</style>', unsafe_allow_html=True)
@@ -90,7 +90,7 @@ class Main():
         # set the subheader size
         st.markdown('<style>h3{font-size: 15px;}</style>', unsafe_allow_html=True)
         st.subheader("Apoio")
-        image = Image.open('icon/Ufersa.png')
+        image = Image.open('app\icon\Ufersa.png')
         st.image(image, caption='UFERSA', width=70)
 
 
