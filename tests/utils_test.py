@@ -1,5 +1,5 @@
 import pandas as pd
-from utils import get_user_data
+from app.utils import get_user_data
 
 def test_get_user_data():
     """
