@@ -1,0 +1,14 @@
+cff-version: 0.1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Almeida"
+  given-names: "Vinicius"
+- family-names: "Cavalcante"
+  given-names: "Caio"
+- family-names: "Rosana"
+  given-names: "Rego"
+  orcid: "https://orcid.org/0000-0001-5997-1221"
+title: "Euthyroid Diagnostic Support Application "
+version: 0.1.0
+date-released: 2023-20-04
+url: "https://github.com/cilab-ufersa/euthyroid_diagnostic_support_app"
