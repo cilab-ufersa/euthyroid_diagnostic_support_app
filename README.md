@@ -1,5 +1,6 @@
 # Euthyroid Diagnostic Support Application 
 
+![Figure](https://github.com/cilab-ufersa/euthyroid_diagnostic_support_app/blob/develop/imge.png)
 
 ## Prerequisites
 
