@@ -1,5 +1,6 @@
 # Euthyroid Diagnostic Support Application 
 
+![Figure](https://github.com/cilab-ufersa/euthyroid_diagnostic_support_app/blob/develop/imge.png)
 
 ## Prerequisites
 
@@ -30,12 +31,23 @@ $ streamlit run main.py --server.enableCORS false --server.enableXsrfProtection 
 ## Scientific Developers
 👤 [Vinicius Almeida](https://github.com/vinicius-a-almeida): 
   _vinicius45anacleto@gmail.com_
-  
+
+👤 [Caio Moisés](https://github.com/caiomoises):
+ _caio.cavalcante@alunos.ufersa.edu.br_
 
 
 ### Technical and scientific support 
 
 👤 [Rosana Rego](https://github.com/roscibely)
+
+
+---
+
+##### *WARNING*
+
+While test and model results are important, it is critical to remember that they should not be used as a sole source of information or as a definitive decision. It is essential that a healthcare professional use their clinical knowledge and judgment to properly interpret and evaluate these results, ensuring that patients receive the most appropriate and safe treatment.
+            
+---
   
 ## Support by 
 <div>
