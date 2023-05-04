@@ -54,3 +54,7 @@ While test and model results are important, it is critical to remember that they
 
   <img src="https://github.com/roscibely/algorithms-and-data-structure/blob/main/Ufersa.png" width="70" height="100">
 </div>
+
+## Publications related to this project
+
+Rego, Rosana; Almeida, Vinicius; Cavalcante, Caio; Lima Nathalee. DIAGNOSTIC SUPPORT SYSTEM FOR EUTHYROID SICK SYNDROME BASED ON MACHINE LEARNING ALGORITHMS APPROACHES. International Conference on Intelligent Systems and New Applications (ICISNA'23), 2023. 
