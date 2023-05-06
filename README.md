@@ -57,4 +57,4 @@ While test and model results are important, it is critical to remember that they
 
 ## Publications related to this project
 
-Rego, Rosana; Almeida, Vinicius; Cavalcante, Caio; Lima Nathalee. DIAGNOSTIC SUPPORT SYSTEM FOR EUTHYROID SICK SYNDROME BASED ON MACHINE LEARNING ALGORITHMS APPROACHES. International Conference on Intelligent Systems and New Applications (ICISNA'23), 2023. 
+Rego, Rosana; Almeida, Vinicius; Cavalcante, Caio; Lima Nathalee. [DIAGNOSTIC SUPPORT SYSTEM FOR EUTHYROID SICK SYNDROME BASED ON MACHINE LEARNING ALGORITHMS APPROACHES](https://github.com/cilab-ufersa/euthyroid_diagnostic_support_app/blob/develop/paper.pdf). International Conference on Intelligent Systems and New Applications (ICISNA'23), 2023. 
