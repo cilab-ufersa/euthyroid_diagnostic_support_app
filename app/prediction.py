@@ -82,14 +82,25 @@ class Prediction:
         # change color of the number input when the user click on it
         st.markdown('<style>input[type=number] {color: #1E90FF;}</style>', unsafe_allow_html=True)
         
+        
         age = st.number_input("Idade",min_value=1, max_value=100, value=1, key="age", help="Idade do paciente")
         sex = st.selectbox("Sexo",("F","M"), key="sex")
         sick = st.selectbox("Possui algum distúrbio da tireoide?", ("Não", "Sim"), key="sick", help="Se o paciente possui algum distúrbio da tireoide já conhecido")
         tsh = st.number_input("TSH",min_value=0.0, max_value=600.0, value=0.0, key="tsh", help="TSH é a sigla para hormônio estimulante da tireoide, que é produzido pela glândula pituitária")
+        if tsh == 0.0:
+            st.error(":red[campo obrigatório]")
         t3 = st.number_input("T3",min_value=0.0, max_value=11.0, value=0.0, key="t3", help="T3 é a sigla para triiodotironina, que é um hormônio produzido pela glândula tireoide")
-        tt4 = st.number_input("TT4",min_value=0.0, max_value=500.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
+        if t3 == 0.0:
+            st.error(":red[campo obrigatório]")
+        tt4 = st.number_input("Total T4",min_value=0.0, max_value=500.0, value=0.0, key="tt4", help="TT4 é a sigla para tiroxina total, que é um hormônio produzido pela glândula tireoide")
+        if tt4 == 0.0:
+            st.error(":red[campo obrigatório]")
         t4u = st.number_input("T4 Livre",min_value=0.0, max_value=3.0, value=0.0, key="t4u", help="Tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        if t4u == 0.0:
+            st.error(":red[campo obrigatório]")
         fti = st.number_input("FTI",min_value=0.0, max_value=1000.0, value=0.0, key="fti", help="FTI é a sigla para índice de tiroxina livre, que é um hormônio produzido pela glândula tireoide")
+        if fti == 0.0:
+            st.error(":red[campo obrigatório]")
 
         sex = sex_string2int(sex)
         sick = sick_string2int(sick)
@@ -102,10 +113,12 @@ class Prediction:
 
         st.markdown('---')
         st.markdown('<style>div.row-widget.stButton > button {color: white; background-color: #1E90FF;}</style>', unsafe_allow_html=True)
- 
+        
+        ver_button = (tsh == 0.0) or (t3 == 0.0) or (tt4 == 0.0) or (t4u == 0.0) or (fti == 0.0)
+        
         but1, but2, but3 = st.columns(3)
         with but1:
-            st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction")
+            st.button("Realizar predição",on_click=lambda:self.predict_result(self.user_input_variables), key="prediction", disabled = ver_button)
         with but2:
             st.button("Limpar", on_click=lambda: self.clear_values(), key="clear")
         with but3:
