@@ -52,7 +52,7 @@ While test and model results are important, it is critical to remember that they
 ## Support by 
 <div>
 
-  <img src="https://github.com/roscibely/algorithms-and-data-structure/blob/main/Ufersa.png" width="70" height="100">
+  <img src="https://github.com/roscibely/algorithms-and-data-structure/blob/main/root/Ufersa.png" width="70" height="100">
 </div>
 
 ## Publications related to this project
